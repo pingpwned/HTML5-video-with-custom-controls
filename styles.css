@@ -1,5 +1,6 @@
 .container {
   position: relative;
+  margin-bottom: 10rem;
 }
 
 video {
@@ -10,6 +11,7 @@ video {
 .placeholder {
   position: absolute;
   inset: 0;
+  overflow: hidden;
 }
 
 .poster {
@@ -36,10 +38,15 @@ video {
   color: white;
   cursor: pointer;
   z-index: 1;
+  font-size: xx-large;
 }
 
 .toggleButton:hover + .poster {
   filter: brightness(0.7);
+}
+
+.toggleButton:hover + .poster.zoom {
+  transform: scale(1.1);
 }
 
 .hidden {

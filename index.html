@@ -4,11 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HTML + CSS</title>
+    <title>HTML5 Video + CSS + JS</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <h1>HTML5 video with custom contrls</h1>
+    <hr />
+
+    <h2>Highlight poster on hover, play/pause on click</h2>
     <div class="container">
+      <video class="video" controls>
+        <source
+          src="https://dl11.webmfiles.org/big-buck-bunny_trailer.webm"
+          type="video/webm"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="placeholder">
+        <button class="toggleButton">►</button>
+        <div class="poster zoom"></div>
+      </div>
+    </div>
+
+    <h2>Play video on hover</h2>
+    <div class="container hoverable">
       <video class="video" controls>
         <source
           src="https://dl11.webmfiles.org/big-buck-bunny_trailer.webm"
@@ -27,6 +47,7 @@
       const video = document.querySelector(".video");
       const toggleButton = document.querySelector(".toggleButton");
       const placeholder = document.querySelector(".placeholder");
+
       function togglePlay() {
         if (video.paused || video.ended) {
           video.play();
@@ -34,6 +55,7 @@
           video.pause();
         }
       }
+
       function togglePlaceholder() {
         placeholder.classList.toggle("hidden");
       }
@@ -42,6 +64,27 @@
       video.addEventListener("click", togglePlay);
       video.addEventListener("play", togglePlaceholder);
       video.addEventListener("pause", togglePlaceholder);
+
+      // hoverable
+      const hoverable = document.querySelector(".hoverable");
+      const hoverablePlaceholder = document.querySelector(
+        ".hoverable .placeholder"
+      );
+      const hoverableVideo = document.querySelector(".hoverable .video");
+
+      function mouseOver() {
+        hoverablePlaceholder.classList.add("hidden");
+
+        hoverableVideo.play();
+      }
+      function mouseLeave() {
+        hoverablePlaceholder.classList.remove("hidden");
+
+        hoverableVideo.pause();
+      }
+
+      hoverable.addEventListener("mouseenter", mouseOver);
+      hoverable.addEventListener("mouseleave", mouseLeave);
     </script>
   </body>
 </html>

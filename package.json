@@ -1,5 +1,5 @@
 {
-  "name": "HTML5 video poster",
+  "name": "html5-video-poster",
   "version": "1.0.0",
   "description": "MVP for HTML5 video tag with a poster and custom controls to hide it.",
   "main": "index.html",
