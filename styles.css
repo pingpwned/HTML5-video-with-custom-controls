@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+}
+
+.poster {
+  position: absolute;
+  inset: 0;
+  background: url("https://www.gstatic.com/webp/gallery/4.webp") no-repeat;
+  background-size: cover;
+  filter: brightness(0.3);
+  transition: all 0.3s ease-in-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggleButton {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.toggleButton:hover + .poster {
+  filter: brightness(0.7);
+}
+
+.hidden {
+  display: none;
+}

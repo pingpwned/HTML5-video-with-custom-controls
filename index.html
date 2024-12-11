@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <video class="video" controls>
+        <source
+          src="https://dl11.webmfiles.org/big-buck-bunny_trailer.webm"
+          type="video/webm"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <div class="placeholder">
+        <button class="toggleButton">►</button>
+        <div class="poster"></div>
+      </div>
+    </div>
+
+    <script>
+      const video = document.querySelector(".video");
+      const toggleButton = document.querySelector(".toggleButton");
+      const placeholder = document.querySelector(".placeholder");
+      function togglePlay() {
+        if (video.paused || video.ended) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      }
+      function togglePlaceholder() {
+        placeholder.classList.toggle("hidden");
+      }
+
+      toggleButton.addEventListener("click", togglePlay);
+      video.addEventListener("click", togglePlay);
+      video.addEventListener("play", togglePlaceholder);
+      video.addEventListener("pause", togglePlaceholder);
+    </script>
+  </body>
+</html>
